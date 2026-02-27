@@ -18,8 +18,8 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        const copyrightName = "Template by Lipaved";
-        const targetLink = "https://alifafvedfahroza.site";
+        const copyrightName = "Template by VinzDev";
+        const targetLink = "-";
         const year = new Date().getFullYear();
         const originalCopyrightHTML = `© Copyright <a href="${targetLink}" class="hover:text-gray-300 transition duration-200 no-underline" style="text-decoration: none;" target="_blank" rel="noopener noreferrer">${copyrightName} ${year}</a>`;
 
@@ -115,5 +115,6 @@
                 }
             }
         }
+
 
         setInterval(checkCopyrightIntegrity, 1000);
