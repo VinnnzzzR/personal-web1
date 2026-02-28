@@ -116,5 +116,41 @@
             }
         }
 
+// ================= SUPABASE =================
+
+// GANTI DENGAN PUNYA KAMU
+const supabaseUrl = "https://ekrcedhdwspltgyalruw.supabase.co";
+const supabaseKey = "sb_publishable_PW_G4wmjdT6BEUz2ii87zg_JYesUW6t";
+
+const supabase = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+
+// FORM CONTACT
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const { error } = await supabase
+        .from("contacts")
+        .insert([
+            { name, email, message }
+        ]);
+
+    if (error) {
+        alert("Pesan gagal dikirim ❌");
+        console.log(error);
+    } else {
+        alert("Pesan berhasil dikirim ✅");
+        contactForm.reset();
+    }
+});
 
         setInterval(checkCopyrightIntegrity, 1000);
+
